@@ -11,7 +11,6 @@ Technologies used:
   <h3><u>Web stack</u></h3>
   <li>HTML/CSS</li>
   <li>Flask</li>
-  <li>MongoDB</li>
   <li>Javascript</li>
   <br>
   <h3><u>Non-web stack</u></h3>
