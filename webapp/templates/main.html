@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resla</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="camera">
+        
+    </div>
+    <div class="resla-background">
+        <h1>RESLA</h1>
+        <div class="buttons">
+    {% for label, command in commands.items() %}
+        <button class="command command-{{ command }}" value="{{ command }}">
+		{{ label }}
+        </button>
+    {% endfor %}
+        </div>
+    <script>
+        addEventListener("DOMContentLoaded", function () {
+          var commandButtons = document.querySelectorAll(".command");
+          for (var i=0, l=commandButtons.length; i<l; i++) {
+              var button = commandButtons[i];
+              button.addEventListener("click", function (e) {
+                  e.preventDefault();
+
+                  var clickedButton = e.target
+                  var command = clickedButton.value;
+                  var request = new XMLHttpRequest();
+                 
+                     
+                  request.open("GET", "/" + command, true);
+                  request.send();
+              })
+          }
+        }, true);
+    </script>
+    </div>
+</body>
+</html>
